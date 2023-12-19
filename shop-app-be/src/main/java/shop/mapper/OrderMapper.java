@@ -1,15 +1,15 @@
-package ro.msg.learning.shop.mapper;
+package shop.mapper;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
-import ro.msg.learning.shop.dto.OrderDTO;
-import ro.msg.learning.shop.entity.OrderDetailEntity;
-import ro.msg.learning.shop.entity.OrderEntity;
-import ro.msg.learning.shop.entity.ProductEntity;
-import ro.msg.learning.shop.entity.ids.OrderDetailID;
+import shop.dto.OrderDTO;
+import shop.entity.OrderDetailEntity;
+import shop.entity.OrderEntity;
+import shop.entity.ProductEntity;
+import shop.entity.ids.OrderDetailID;
 
 import java.util.*;
 

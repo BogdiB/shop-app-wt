@@ -1,8 +1,8 @@
-package ro.msg.learning.shop.entity;
+package shop.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import ro.msg.learning.shop.entity.ids.StockID;
+import shop.entity.ids.StockID;
 
 @Entity
 @Table(name = "stock")

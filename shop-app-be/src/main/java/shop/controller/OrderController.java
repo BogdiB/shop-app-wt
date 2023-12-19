@@ -1,17 +1,16 @@
-package ro.msg.learning.shop.controller;
+package shop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.msg.learning.shop.dto.OrderDTO;
-import ro.msg.learning.shop.entity.LocationEntity;
-import ro.msg.learning.shop.entity.OrderDetailEntity;
-import ro.msg.learning.shop.entity.OrderEntity;
-import ro.msg.learning.shop.mapper.OrderMapper;
-import ro.msg.learning.shop.service.OrderService;
-import ro.msg.learning.shop.service.impl.ProductServiceImpl;
-
+import shop.dto.OrderDTO;
+import shop.entity.LocationEntity;
+import shop.entity.OrderDetailEntity;
+import shop.entity.OrderEntity;
+import shop.mapper.OrderMapper;
+import shop.service.OrderService;
+import shop.service.impl.ProductServiceImpl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.UUID;

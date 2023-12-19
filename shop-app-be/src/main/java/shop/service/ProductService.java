@@ -1,7 +1,6 @@
-package ro.msg.learning.shop.service;
+package shop.service;
 
-import ro.msg.learning.shop.entity.ProductEntity;
-
+import shop.entity.ProductEntity;
 import java.util.Collection;
 import java.util.UUID;
 

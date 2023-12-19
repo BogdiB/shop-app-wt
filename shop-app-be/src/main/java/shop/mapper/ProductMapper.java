@@ -1,10 +1,10 @@
-package ro.msg.learning.shop.mapper;
+package shop.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import ro.msg.learning.shop.dto.ProductDTO;
-import ro.msg.learning.shop.entity.ProductEntity;
+import shop.dto.ProductDTO;
+import shop.entity.ProductEntity;
 
 @Mapper
 public interface ProductMapper

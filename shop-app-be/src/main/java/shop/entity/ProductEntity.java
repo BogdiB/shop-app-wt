@@ -1,8 +1,7 @@
-package ro.msg.learning.shop.entity;
+package shop.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Set;

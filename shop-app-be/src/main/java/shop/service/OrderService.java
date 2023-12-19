@@ -1,8 +1,7 @@
-package ro.msg.learning.shop.service;
+package shop.service;
 
-import ro.msg.learning.shop.entity.LocationEntity;
-import ro.msg.learning.shop.entity.OrderEntity;
-
+import shop.entity.LocationEntity;
+import shop.entity.OrderEntity;
 import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;

@@ -1,11 +1,10 @@
-package ro.msg.learning.shop.service.impl;
+package shop.service.impl;
 
 
 import org.springframework.stereotype.Service;
-import ro.msg.learning.shop.entity.CustomerEntity;
-import ro.msg.learning.shop.repository.CustomerRepository;
-import ro.msg.learning.shop.service.CustomerService;
-
+import shop.entity.CustomerEntity;
+import shop.repository.CustomerRepository;
+import shop.service.CustomerService;
 import java.util.Collection;
 import java.util.UUID;
 

@@ -1,10 +1,8 @@
-package ro.msg.learning.shop.service;
+package shop.service;
 
-import ro.msg.learning.shop.entity.OrderDetailEntity;
-import ro.msg.learning.shop.entity.ids.OrderDetailID;
-
+import shop.entity.OrderDetailEntity;
+import shop.entity.ids.OrderDetailID;
 import java.util.Collection;
-import java.util.UUID;
 
 public interface OrderDetailService
 {

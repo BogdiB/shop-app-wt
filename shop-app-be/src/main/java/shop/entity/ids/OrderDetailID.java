@@ -1,18 +1,21 @@
-// Order Detail ID
-package ro.msg.learning.shop.entity.ids;
+package shop.entity.ids;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import ro.msg.learning.shop.entity.OrderEntity;
-import ro.msg.learning.shop.entity.ProductEntity;
+import lombok.NoArgsConstructor;
+import shop.entity.OrderEntity;
+import shop.entity.ProductEntity;
+
+import java.io.Serializable;
 
 @Data
 @Embeddable
+@NoArgsConstructor
 @AllArgsConstructor
-public class OrderDetailID
+public class OrderDetailID implements Serializable
 {
     @ManyToOne(cascade = CascadeType.ALL)
     private OrderEntity orders;

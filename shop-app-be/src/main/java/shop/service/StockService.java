@@ -1,8 +1,7 @@
-package ro.msg.learning.shop.service;
+package shop.service;
 
-import ro.msg.learning.shop.entity.StockEntity;
-import ro.msg.learning.shop.entity.ids.StockID;
-
+import shop.entity.StockEntity;
+import shop.entity.ids.StockID;
 import java.util.Collection;
 
 public interface StockService

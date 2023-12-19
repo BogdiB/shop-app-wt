@@ -1,4 +1,4 @@
-package ro.msg.learning.shop.entity;
+package shop.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

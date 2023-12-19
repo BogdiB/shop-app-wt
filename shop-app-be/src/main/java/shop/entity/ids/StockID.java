@@ -1,17 +1,18 @@
-package ro.msg.learning.shop.entity.ids;
+package shop.entity.ids;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import ro.msg.learning.shop.entity.LocationEntity;
-import ro.msg.learning.shop.entity.ProductEntity;
+import shop.entity.LocationEntity;
+import shop.entity.ProductEntity;
+
+import java.io.Serializable;
 
 @Data
 @Embeddable
-public class StockID
+public class StockID implements Serializable
 {
     @ManyToOne(cascade = CascadeType.ALL)
     private ProductEntity product;
-
     @ManyToOne(cascade = CascadeType.ALL)
     private LocationEntity location;
 }

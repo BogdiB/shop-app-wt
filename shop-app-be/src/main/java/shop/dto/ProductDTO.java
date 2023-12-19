@@ -1,4 +1,4 @@
-package ro.msg.learning.shop.dto;
+package shop.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

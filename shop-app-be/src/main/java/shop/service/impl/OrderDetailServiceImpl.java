@@ -1,12 +1,11 @@
-package ro.msg.learning.shop.service.impl;
+package shop.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ro.msg.learning.shop.entity.OrderDetailEntity;
-import ro.msg.learning.shop.entity.ids.OrderDetailID;
-import ro.msg.learning.shop.repository.OrderDetailRepository;
-import ro.msg.learning.shop.service.OrderDetailService;
-
+import shop.entity.OrderDetailEntity;
+import shop.entity.ids.OrderDetailID;
+import shop.repository.OrderDetailRepository;
+import shop.service.OrderDetailService;
 import java.util.Collection;
 import java.util.UUID;
 

@@ -1,10 +1,10 @@
-package ro.msg.learning.shop.entity;
+package shop.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ro.msg.learning.shop.entity.ids.OrderDetailID;
+import shop.entity.ids.OrderDetailID;
 
 @Entity
 @Table(name = "orderDetails")
