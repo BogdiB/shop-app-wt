@@ -9,6 +9,6 @@ public class AppController
     @GetMapping("/")
     public String index()
     {
-        return "<b>yo</b> yo";
+        return "<b>Backend</b> works.";
     }
 }
