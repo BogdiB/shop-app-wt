@@ -1,4 +1,4 @@
-export interface ItemListType {
+export default interface ItemListType {
     id: number,
     name: string,
     username: string,

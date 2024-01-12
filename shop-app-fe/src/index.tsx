@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import Header from './pages/Header.tsx';
 import ItemList from './pages/ItemList.tsx';
+import Product from './pages/Product.tsx';
 import NoPage from './pages/NoPage.tsx';
 
 const appBase = (
@@ -12,6 +13,7 @@ const appBase = (
     <Routes>
       <Route path="/" element={<Header />}>
         <Route index element={<ItemList />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="*" element={<NoPage />} />
       </Route>
     </Routes>

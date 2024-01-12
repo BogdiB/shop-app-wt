@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import style from "../css/header.module.css";
+import styles from "../css/header.module.css";
 
 function Header() {
     return (
         <>
-            <div className={style.headerContainer}>
-                <h1>This will be the header</h1>
+            <div className={styles.headerContainer}>
+                <h1>Shop App</h1>
             </div>
             <Outlet />
         </>

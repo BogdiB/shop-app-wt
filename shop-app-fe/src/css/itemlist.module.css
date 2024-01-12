@@ -1,0 +1,34 @@
+.headText {
+    padding: 0.2em 1.5em;
+}
+
+.table {
+    margin: 0px auto; /* vertical, horizontal */
+    width: 90%;
+    border-collapse: collapse;
+    
+    th, td {
+        border: 0.1em solid #9e9e9e;
+        padding: 0.2em 0.5em; /* vertical, horizontal */
+    }
+
+    th {
+        font-size: 17px;
+        padding: 0.4em 0.3em;
+    }
+
+    /* selects the last 2 columns of th and td = the columns with buttons */
+    th:nth-last-child(-n+2), td:nth-last-child(-n+2) {
+        text-align: center;
+        width: 1%;
+        white-space: nowrap;
+    }
+
+    td:nth-last-child(-n+2) {
+        cursor: pointer;
+    }
+
+    tbody>tr:nth-child(odd) {
+        background-color: #dddddd;
+    }
+}
