@@ -1,0 +1,14 @@
+.productContainer {
+    padding: 0em 4em; /* vertical, horizontal */
+    display: flex;
+    gap: 0.5em;
+}
+
+.productLabels {
+    text-align: end;
+    font-weight: bold;
+}
+
+.productInformation {
+    text-align: start;
+}

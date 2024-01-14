@@ -1,6 +1,6 @@
 function NoPage() {
     return (
-        <h2>404 Error</h2>
+        <h2 style={{textAlign: "center", paddingTop: "3em"}}>404 Error: Page Not Found</h2>
     );
 }
 

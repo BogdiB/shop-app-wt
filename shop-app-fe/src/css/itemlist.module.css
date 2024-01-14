@@ -1,7 +1,3 @@
-.headText {
-    padding: 0.2em 1.5em;
-}
-
 .table {
     margin: 0px auto; /* vertical, horizontal */
     width: 90%;
@@ -18,7 +14,7 @@
     }
 
     /* selects the last 2 columns of th and td = the columns with buttons */
-    th:nth-last-child(-n+2), td:nth-last-child(-n+2) {
+    th:nth-last-child(-n+2), td:nth-last-child(-n+2), td:first-child {
         text-align: center;
         width: 1%;
         white-space: nowrap;

@@ -1,12 +1,21 @@
-import { ItemListType } from "../types/ItemListType";
+import ProductType from "../types/ProductType";
 import { apiURL, testURL } from "./variables";
 
-async function getItemList() : Promise<ItemListType[]> {
+async function getProductList() : Promise<ProductType[]> {
     let response : Response = await fetch(testURL, {method: "GET"});
     let text : string = await response.text();
-    let itemList: ItemListType[] = JSON.parse(text);
-    // console.log(itemList);
-    return itemList;
+    let productList: ProductType[] = JSON.parse(text);
+    // console.log(productList);
+    return productList;
 }
 
-export default getItemList;
+async function getProduct(id: number): Promise<ProductType> {
+    let response : Response = await fetch(testURL + "/" + id, {method: "GET"});
+    let text : string = await response.text();
+    let product: ProductType = JSON.parse(text);
+    // console.log(product);
+    return product;
+}
+
+export default getProductList;
+export {getProduct};
