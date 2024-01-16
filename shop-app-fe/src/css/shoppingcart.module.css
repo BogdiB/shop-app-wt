@@ -1,0 +1,23 @@
+.topSide {
+    display: flex;
+
+    button {
+        margin: auto 0px;
+        margin-left: auto;
+        margin-right: 1.5em; /* same as headerText from src/index.css */
+        font-size: 18px;
+        border-radius: 1em;
+        border-style:solid;
+        border-color: rgb(48, 48, 48);
+        background-color: steelblue;
+        cursor: pointer;
+    }
+}
+
+.cartTable {
+    th:nth-last-child(3), td:nth-last-child(3) {
+        text-align: center;
+        width: 1%;
+        white-space: nowrap;
+    }
+}

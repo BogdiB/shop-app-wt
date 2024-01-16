@@ -1,8 +1,29 @@
 .headerContainer {
     background-color: gray;
+    display: flex;
 
     h1 {
         margin: 0px;
-        padding: 0.2em 0.5em; /* vertical, horizontal */
+        padding: 0.3em 0.5em; /* vertical, horizontal */
+        cursor: default;
     }
+}
+
+.headerButtons {
+    margin: auto 0px;
+    margin-left: auto;
+    padding: 0em 0.8em; /* vertical, horizontal */
+}
+
+button {
+    font-size: 18px;
+    border-radius: 1em;
+    border-style:solid;
+    border-color: rgb(48, 48, 48);
+    background-color: steelblue;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(54, 120, 174);
 }

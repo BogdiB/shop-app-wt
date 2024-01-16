@@ -2,6 +2,7 @@ import ProductType from "../types/ProductType";
 import { apiURL, testURL } from "./variables";
 
 async function getProductList() : Promise<ProductType[]> {
+    // this assumes that /users is already in the url
     let response : Response = await fetch(testURL, {method: "GET"});
     let text : string = await response.text();
     let productList: ProductType[] = JSON.parse(text);
@@ -10,6 +11,7 @@ async function getProductList() : Promise<ProductType[]> {
 }
 
 async function getProduct(id: number): Promise<ProductType> {
+    // this assumes that /users is already in the url
     let response : Response = await fetch(testURL + "/" + id, {method: "GET"});
     let text : string = await response.text();
     let product: ProductType = JSON.parse(text);
