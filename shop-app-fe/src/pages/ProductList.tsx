@@ -4,6 +4,7 @@ import getProductList from "../global/api";
 import { addToCart } from "../global/storage";
 import ProductType from "../types/ProductType";
 import styles from "../css/productlist_and_cart.module.css";
+import { UUID } from "crypto";
 
 function ProductList() {
     const [productList, setProductList] = useState<ProductType[]>([]);
@@ -17,13 +18,13 @@ function ProductList() {
         });
     }, []);
 
-    function addToShoppingCart(id: number): void {
+    function addToShoppingCart(id: UUID): void {
         // console.log("Added: " + id);
         // we transform id to index
-        addToCart(productList.at(--id)!);
+        // addToCart(id);
     }
 
-    function goTo(id: number): void {
+    function goTo(id: UUID): void {
         navigate("/products/" + id);
     }
 
@@ -35,7 +36,8 @@ function ProductList() {
                 <tr key={0}>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Username</th>
+                    <th>Category</th>
+                    <th>Price</th>
                     <th title="View product.">View</th>
                     <th title="Add to cart.">Add</th>
 
@@ -44,14 +46,15 @@ function ProductList() {
             <tbody>
             {            
                 productList.map((product: ProductType) => (
-                    <tr key={product.id}>
-                        <td>{product.id}</td>
-                        <td>{product.name}</td>
-                        <td>{product.username}</td>
+                    <tr key={product.productID}>
+                        <td>{product.productID}</td>
+                        <td>{product.productName}</td>
+                        <td>{product.categoryName}</td>
+                        <td>{product.productPrice} RON</td>
 
                         {/* I'm not using <Link> for UI/UX reasons */}
-                        <td onClick={() => goTo(product.id)} title={"View \"" + product.name + "\"."}>&gt;</td>
-                        <td onClick={() => addToShoppingCart(product.id)} title={"Add \"" + product.name + "\" to cart."}>+</td>
+                        <td onClick={() => goTo(product.productID)} title={"View \"" + product.productName + "\"."}>&gt;</td>
+                        <td onClick={() => addToShoppingCart(product.productID)} title={"Add \"" + product.productName + "\" to cart."}>+</td>
                     </tr>
                 ))
             }

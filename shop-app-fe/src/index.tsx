@@ -14,7 +14,7 @@ const appBase = (
     <Routes>
       <Route path="/" element={<Header />}>
         <Route index element={<ProductList />} />
-        <Route path="products/:id" element={<Products />} />
+        <Route path="products/*" element={<Products />} />
         <Route path="shopping-cart" element={<ShoppingCart />} />
         <Route path="*" element={<NoPage />} />
       </Route>

@@ -1,6 +1,13 @@
+import { UUID } from "crypto";
+
 export default interface ProductType {
-    id: number,
-    name: string,
-    username: string,
-    email: string
+    productID: UUID,
+    categoryID: UUID,
+    productName: string,
+    productDescription: string,
+    productPrice: number,
+    productWeight: number,
+    productImageURL: string,
+    categoryName: string,
+    categoryDescription: string
 }

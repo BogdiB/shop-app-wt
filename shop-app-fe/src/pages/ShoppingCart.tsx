@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { UUID } from "crypto";
 import { clearCart, getAllFromCart, removeFromCart } from "../global/storage";
-import ProductType from "../types/ProductType";
+import ShoppingCartType from "../types/ShoppingCartType";
 import styles from "../css/productlist_and_cart.module.css";
 import cartStyles from "../css/shoppingcart.module.css";
-import { useEffect } from "react";
 
 function ShoppingCart() {
     const navigate = useNavigate();
@@ -14,10 +15,10 @@ function ShoppingCart() {
         return ;
     }, [productList]);
 
-    function removeFromShoppingCart(id: number) {
+    function removeFromShoppingCart(id: UUID) {
         console.log("Removed: " + id);
-        removeFromCart(productList!.at(--id)!);
-        productList!.splice(--id, 1);
+        // removeFromCart(productList!.at(--id)!);
+        // productList!.splice(--id, 1);
     }
 
     function clearShoppingCart() {
@@ -25,7 +26,7 @@ function ShoppingCart() {
         productList = null;
     }
 
-    function goTo(id: number): void {
+    function goTo(id: UUID): void {
         navigate("/products/" + id);
     }
 
@@ -40,25 +41,27 @@ function ShoppingCart() {
                     <tr key={0}>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Username</th>
+                        <th>Category</th>
+                        <th>Price</th>
                         <th>Number</th>
                         <th title="View product.">View</th>
-                        <th title="Remove from cart.">Remove</th>
+                        <th title="Remove all from cart.">Remove</th>
     
                     </tr>
                 </thead>
                 <tbody>
                 {            
-                    productList !== null && productList.map((product: ProductType) => (
-                        <tr key={product.id}>
-                            <td>{product.id}</td>
-                            <td>{product.name}</td>
-                            <td>{product.username}</td>
-                            <td>NR</td>
+                    productList !== null && productList.map((product: ShoppingCartType) => (
+                        <tr key={product.product.productID}>
+                            <td>{product.product.productID}</td>
+                            <td>{product.product.productName}</td>
+                            <td>{product.product.categoryName}</td>
+                            <td>{product.product.productPrice}</td>
+                            <td>{product.numberOfProducts}</td>
     
                             {/* I'm not using <Link> for UI/UX reasons */}
-                            <td onClick={() => goTo(product.id)} title={"View \"" + product.name + "\"."}>&gt;</td>
-                            <td onClick={() => removeFromShoppingCart(product.id)} title={"Remove \"" + product.name + "\" from cart."}>-</td>
+                            <td onClick={() => goTo(product.product.productID)} title={"View \"" + product.product.productName + "\"."}>&gt;</td>
+                            <td onClick={() => removeFromShoppingCart(product.product.productID)} title={"Remove \"" + product.product.productName + "\" from cart."}>-</td>
                         </tr>
                     ))
                 }

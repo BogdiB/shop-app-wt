@@ -15,7 +15,7 @@
 
     /* selects the last 2 columns of th and td = the columns with buttons */
     /* also selects the first child = the id */
-    th:nth-last-child(-n+2), td:nth-last-child(-n+2), td:first-child {
+    th:nth-last-child(-n+3), td:nth-last-child(-n+3), td:first-child {
         text-align: center;
         width: 1%;
         white-space: nowrap;

@@ -1,18 +1,17 @@
+import { UUID } from "crypto";
 import ProductType from "../types/ProductType";
-import { apiURL, testURL } from "./variables";
+import { apiURL } from "./variables";
 
 async function getProductList() : Promise<ProductType[]> {
-    // this assumes that /users is already in the url
-    let response : Response = await fetch(testURL, {method: "GET"});
+    let response : Response = await fetch(apiURL + "/products", {method: "GET"});
     let text : string = await response.text();
     let productList: ProductType[] = JSON.parse(text);
     // console.log(productList);
     return productList;
 }
 
-async function getProduct(id: number): Promise<ProductType> {
-    // this assumes that /users is already in the url
-    let response : Response = await fetch(testURL + "/" + id, {method: "GET"});
+async function getProduct(id: UUID): Promise<ProductType> {
+    let response : Response = await fetch(apiURL + "/products/" + id, {method: "GET"});
     let text : string = await response.text();
     let product: ProductType = JSON.parse(text);
     // console.log(product);

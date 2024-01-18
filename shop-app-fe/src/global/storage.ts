@@ -1,36 +1,36 @@
-import ProductType from "../types/ProductType";
+import ShoppingCartType from "../types/ShoppingCartType";
 const CART_KEY = "shop-app-react";
 
-function getAllFromCart(): ProductType[] | null {
+function getAllFromCart(): ShoppingCartType[] | null {
     let products = sessionStorage.getItem(CART_KEY);
     if (products !== null) {
-        return JSON.parse(products) as ProductType[];
+        return JSON.parse(products) as ShoppingCartType[];
     }
     return null;
 }
 
-function addToCart(product: ProductType): void {
+function addToCart(product: ShoppingCartType): void {
     let storage = sessionStorage.getItem(CART_KEY);
     if (storage === null) {
-        let products: ProductType[] = [product];
+        let products: ShoppingCartType[] = [product];
         sessionStorage.setItem(CART_KEY, JSON.stringify(products));
     }
     else {
-        let parsed: ProductType[] = JSON.parse(storage);
+        let parsed: ShoppingCartType[] = JSON.parse(storage);
         parsed.push(product);
         sessionStorage.setItem(CART_KEY, JSON.stringify(parsed));
     }
 }
 
-function removeFromCart(product: ProductType): void {
+function removeFromCart(product: ShoppingCartType): void {
     let storage = sessionStorage.getItem(CART_KEY);
     if (storage === null) {
         return;
     }
     else {
-        let parsed: ProductType[] = JSON.parse(storage);
+        let parsed: ShoppingCartType[] = JSON.parse(storage);
         for (let i = 0; i < parsed.length; ++i) {
-            if (parsed.at(i)!.id === product.id) {
+            if (parsed.at(i)!.product.productID === product.product.productID) {
                 parsed.splice(i, 1);
                 break;
             }
