@@ -9,7 +9,7 @@ function Header() {
             <div className={styles.headerContainer}>
                 <h1>Shop App</h1>
                 <div className={styles.headerButtons}>
-                    { !(location.pathname === "/shopping-cart") && <Link to={"/shopping-cart"}><button title="Go to your shopping cart.">Cart</button></Link> }
+                    { !(location.pathname === "/shopping-cart") && <Link to="/shopping-cart"><button title="Go to your shopping cart.">Cart</button></Link> }
                 </div>
             </div>
             <Outlet />

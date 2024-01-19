@@ -18,7 +18,17 @@ function addToCart(product: ProductType): void {
     }
     else {
         let parsed: ShoppingCartType[] = JSON.parse(storage);
-        parsed.push({product, numberOfProducts: 1});
+        let found: boolean = false;
+        for (let i = 0; i < parsed.length; ++i) {
+            let p = parsed.at(i) as ShoppingCartType;
+            if (p.product.productID === product.productID) {
+                p.numberOfProducts++;
+                found = true;
+            }
+        }
+        if (found === false) {
+            parsed.push({product, numberOfProducts: 1});
+        }
         sessionStorage.setItem(CART_KEY, JSON.stringify(parsed));
     }
 }

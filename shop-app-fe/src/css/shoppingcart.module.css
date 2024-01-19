@@ -21,3 +21,14 @@
         white-space: nowrap;
     }
 }
+
+.checkout {
+    display: flex;
+
+    a {
+        font-size: 18px; /* without this it's not properly aligned */
+        padding: 1em 0em;
+        margin-left: auto;
+        margin-right: 1.5em;
+    }
+}

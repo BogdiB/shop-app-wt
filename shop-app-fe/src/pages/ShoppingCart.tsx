@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UUID } from "crypto";
 import { clearCart, getAllFromCart, removeFromCart } from "../global/storage";
 import ShoppingCartType from "../types/ShoppingCartType";
@@ -65,6 +65,9 @@ function ShoppingCart() {
                 }
                 </tbody>
             </table>
+            <div className={cartStyles.checkout}>
+                <Link to="/checkout"><button>Checkout</button></Link>
+            </div>
         </>
         );
 }
