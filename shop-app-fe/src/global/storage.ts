@@ -1,3 +1,4 @@
+import ProductType from "../types/ProductType";
 import ShoppingCartType from "../types/ShoppingCartType";
 const CART_KEY = "shop-app-react";
 
@@ -9,15 +10,15 @@ function getAllFromCart(): ShoppingCartType[] | null {
     return null;
 }
 
-function addToCart(product: ShoppingCartType): void {
+function addToCart(product: ProductType): void {
     let storage = sessionStorage.getItem(CART_KEY);
     if (storage === null) {
-        let products: ShoppingCartType[] = [product];
+        let products: ShoppingCartType[] = [{product, numberOfProducts: 1}];
         sessionStorage.setItem(CART_KEY, JSON.stringify(products));
     }
     else {
         let parsed: ShoppingCartType[] = JSON.parse(storage);
-        parsed.push(product);
+        parsed.push({product, numberOfProducts: 1});
         sessionStorage.setItem(CART_KEY, JSON.stringify(parsed));
     }
 }

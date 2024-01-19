@@ -5,6 +5,7 @@ import { addToCart } from "../global/storage";
 import ProductType from "../types/ProductType";
 import styles from "../css/productlist_and_cart.module.css";
 import { UUID } from "crypto";
+import ShoppingCartType from "../types/ShoppingCartType";
 
 function ProductList() {
     const [productList, setProductList] = useState<ProductType[]>([]);
@@ -18,10 +19,10 @@ function ProductList() {
         });
     }, []);
 
-    function addToShoppingCart(id: UUID): void {
+    function addToShoppingCart(product: ProductType): void {
         // console.log("Added: " + id);
         // we transform id to index
-        // addToCart(id);
+        addToCart(product);
     }
 
     function goTo(id: UUID): void {
@@ -54,7 +55,7 @@ function ProductList() {
 
                         {/* I'm not using <Link> for UI/UX reasons */}
                         <td onClick={() => goTo(product.productID)} title={"View \"" + product.productName + "\"."}>&gt;</td>
-                        <td onClick={() => addToShoppingCart(product.productID)} title={"Add \"" + product.productName + "\" to cart."}>+</td>
+                        <td onClick={() => addToShoppingCart(product)} title={"Add \"" + product.productName + "\" to cart."}>+</td>
                     </tr>
                 ))
             }

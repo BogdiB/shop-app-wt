@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UUID } from "crypto";
 import { clearCart, getAllFromCart, removeFromCart } from "../global/storage";
@@ -8,22 +8,20 @@ import cartStyles from "../css/shoppingcart.module.css";
 
 function ShoppingCart() {
     const navigate = useNavigate();
-    let productList = getAllFromCart();
+    let [productList, setProductList] = useState(getAllFromCart());
 
-    // basically useState, I was just curious if this works well :)
-    useEffect(() => {
-        return ;
-    }, [productList]);
-
-    function removeFromShoppingCart(id: UUID) {
-        console.log("Removed: " + id);
-        // removeFromCart(productList!.at(--id)!);
-        // productList!.splice(--id, 1);
+    function removeFromShoppingCart(product: ShoppingCartType) {
+        // console.log("Removed: " + id);
+        removeFromCart(product);
+        setProductList(productList?.filter((prod) => {
+            return prod.product.productID !== product.product.productID;
+        }) || null);
+        // console.log(productList);
     }
 
     function clearShoppingCart() {
         clearCart();
-        productList = null;
+        setProductList(null);
     }
 
     function goTo(id: UUID): void {
@@ -56,12 +54,12 @@ function ShoppingCart() {
                             <td>{product.product.productID}</td>
                             <td>{product.product.productName}</td>
                             <td>{product.product.categoryName}</td>
-                            <td>{product.product.productPrice}</td>
+                            <td>{product.product.productPrice} RON</td>
                             <td>{product.numberOfProducts}</td>
     
                             {/* I'm not using <Link> for UI/UX reasons */}
                             <td onClick={() => goTo(product.product.productID)} title={"View \"" + product.product.productName + "\"."}>&gt;</td>
-                            <td onClick={() => removeFromShoppingCart(product.product.productID)} title={"Remove \"" + product.product.productName + "\" from cart."}>-</td>
+                            <td onClick={() => removeFromShoppingCart(product)} title={"Remove \"" + product.product.productName + "\" from cart."}>-</td>
                         </tr>
                     ))
                 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { redirect, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getProduct } from "../global/api";
 import { UUID } from "crypto";
 import ProductType from "../types/ProductType";
@@ -29,13 +29,19 @@ function Products() {
         <div className={styles.productContainer}>
             <div className={styles.productLabels}>
                 <p>Name:</p>
+                <p>Description:</p>
                 <p>Category:</p>
+                <p>Category description:</p>
+                <p>Weight:</p>
                 <p>Price:</p>
             </div>
             <div className={styles.productInformation}>
                 <p>{product.productName}</p>
+                <p>{product.productDescription}</p>
                 <p>{product.categoryName}</p>
-                <p>{product.productPrice}</p>
+                <p>{product.categoryDescription}</p>
+                <p>{product.productWeight} KG</p>
+                <p>{product.productPrice} RON</p>
             </div>
         </div>
         </>
