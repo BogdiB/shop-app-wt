@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { UUID } from "crypto";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { clearCart, getAllFromCart, removeFromCart } from "../global/storage";
 import ShoppingCartType from "../types/ShoppingCartType";
 import styles from "../css/productlist_and_cart.module.css";
@@ -11,12 +10,12 @@ function ShoppingCart() {
     let [productList, setProductList] = useState(getAllFromCart());
 
     function removeFromShoppingCart(product: ShoppingCartType) {
-        // console.log("Removed: " + id);
         removeFromCart(product);
-        setProductList(productList?.filter((prod) => {
-            return prod.product.productID !== product.product.productID;
-        }) || null);
-        // console.log(productList);
+        let newProductList = productList?.filter((prod) => prod.product.productID !== product.product.productID) || null;
+        if (newProductList?.length === 0) {
+            newProductList = null;
+        }
+        setProductList(newProductList);
     }
 
     function clearShoppingCart() {
@@ -24,15 +23,11 @@ function ShoppingCart() {
         setProductList(null);
     }
 
-    function goTo(id: UUID): void {
-        navigate("/products/" + id);
-    }
-
     return (
         <>
             <div className={cartStyles.topSide}>
                 <h2 className="headText">Shopping Cart</h2>
-                <button onClick={clearShoppingCart}>Clear</button>
+                <button disabled={productList === null} onClick={clearShoppingCart} title="Clear your shopping cart.">Clear Cart</button>
             </div>
             <table className={styles.table + " " + cartStyles.cartTable}>
                 <thead>
@@ -41,7 +36,7 @@ function ShoppingCart() {
                         <th>Name</th>
                         <th>Category</th>
                         <th>Price</th>
-                        <th>Number</th>
+                        <th>Quantity</th>
                         <th title="View product.">View</th>
                         <th title="Remove all from cart.">Remove</th>
     
@@ -58,7 +53,7 @@ function ShoppingCart() {
                             <td>{product.numberOfProducts}</td>
     
                             {/* I'm not using <Link> for UI/UX reasons */}
-                            <td onClick={() => goTo(product.product.productID)} title={"View \"" + product.product.productName + "\"."}>&gt;</td>
+                            <td onClick={() => navigate("/products/" + product.product.productID)} title={"View \"" + product.product.productName + "\"."}>&gt;</td>
                             <td onClick={() => removeFromShoppingCart(product)} title={"Remove \"" + product.product.productName + "\" from cart."}>-</td>
                         </tr>
                     ))
@@ -66,7 +61,7 @@ function ShoppingCart() {
                 </tbody>
             </table>
             <div className={cartStyles.checkout}>
-                <Link to="/checkout"><button>Checkout</button></Link>
+                <button disabled={productList === null} onClick={() => navigate("/checkout")}>Checkout</button>
             </div>
         </>
         );

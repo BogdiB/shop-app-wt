@@ -6,11 +6,6 @@
         margin-left: auto;
         margin-right: 1.5em; /* same as headerText from src/index.css */
         font-size: 18px;
-        border-radius: 1em;
-        border-style:solid;
-        border-color: rgb(48, 48, 48);
-        background-color: steelblue;
-        cursor: pointer;
     }
 }
 
@@ -25,9 +20,11 @@
 .checkout {
     display: flex;
 
-    a {
-        font-size: 18px; /* without this it's not properly aligned */
-        padding: 1em 0em;
+    button {
+        /* if you have a "Link to" encompasing the button, you need to put the "a" selector, in this case, without the right font size it won't be properly aligned */
+        font-size: 18px;
+        /* padding: 1em 0em; */
+        margin: 1em 0em;
         margin-left: auto;
         margin-right: 1.5em;
     }
